@@ -4,39 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- My style -->
     <link rel="stylesheet" href="./style/style.css">
+    <!-- Script vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
     <div class="background-overlay-1">
     </div>
     <div class="background-overlay-2">
     </div>
-    <main class="container">
-        <aside class="container-aside">
-            <header>
-                <div class="container-personal-profile">
-                    <div>
-                        <img src="./img/avatar_io.jpg" alt="picture my profile">
-                        Nome del profilo
-                    </div>
-                    <div>
-                        icone
-                    </div>
-                </div>
-                <div>
-                    Ricevi Notifiche
-                </div>
-                <div>
-                    Barra di ricerca
-                </div>    
-            </header>
-            <ul>
-                <li>
-                    Lista contatti
-                </li>
-            </ul>
-        </aside>
-    </main>
+    <div id="app">
+        <main class="container">
+            <aside class="container-aside">
+                <header>
+                    <section class="container-personal-profile">
+                        <div class="container-personal">
+                            <img src="./img/avatar_io.jpg" alt="picture my profile">
+                            <span>Sofia</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </section>
+                    <section class="container-sound-notify" :class="{ 'container-sound-notify-bg': isBackgroundActive }" @click="bellsChangeBackground()">
+                        <div class="bells-notify">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <div class="info-sound-notify">
+                            <p>Ricevi notifiche di nuovi messaggi</p>
+                            <a href="">Attiva notifiche desktop</a>
+                        </div>
+                    </section>
+                    <!-- fare in modo di poter trovare nell'array i nomi dei contatti, ed evidenziali -->
+                    <section class="searches-contacts">
+                        <div>
+                            <input type="text" id="search-contact" placeholder="Cerca o inizia una nuova chat"><i class="fa-solid fa-magnifying-glass"></i>
+                        </div>    
+                    </section>
+                </header>
+                <!-- creare un ciclo for per inserire i nomi, far visualizzare l'ultimo messaggio inviato e l'arario del messaggio -->
+                <section class="container-contacts">
+                    <ul>
+                        <li>
+                            <div>
+                                <img :src="contacts[0].avatar" alt="">
+                            </div>
+                            {{ contacts[0].name }}
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+        </main>
+    </div>
     <script src="./script/script.js"></script>
 </body>
 </html>

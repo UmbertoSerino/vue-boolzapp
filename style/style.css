@@ -4,6 +4,14 @@
     padding: 0;
 }
 
+body{
+    font-family: sans-serif;    
+}
+
+ul li{
+    list-style-type: none;
+}
+
 div.background-overlay-1{
     height: 150px;
     background-color: #009588;
@@ -16,8 +24,10 @@ div.background-overlay-2{
 }
 
 main.container{
-    width: 1800px;
-    height: 800px;
+    width: 75%;
+    height: 95%;
+    max-width: 1800px;
+    max-height: 800px;
     background-color: rgb(33, 143, 186);
     position: absolute;
     top: 50%;
@@ -30,15 +40,92 @@ aside.container-aside{
     background-color: white;
 }
 
-div.container-personal-profile{
+/* ===== SECTION PERSONAL PROFILE ===== */
+
+section.container-personal-profile{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
+    padding: .5rem;
+    background-color: #EAEAEA;
 }
 
-img{
+.container-personal{
+    align-items: center;
+    display: flex;
+}
+
+section.container-personal-profile img{
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+}
+
+section.container-personal-profile i{
+    color: #B1B1B1;
+    padding: 0 .5rem;
+    font-size: 1.5rem;
+}
+
+/* ===== SECTION SOUND NOTIFY ===== */
+
+section.container-sound-notify{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+section.container-sound-notify-bg{
+    background-color: #8EDAFC;
+}
+
+div.bells-notify{
+    background-color: gray;
+    border-radius: 50%;
+    color: white;
+    margin-right: .8rem;
+    padding: .5rem;
+}
+div.bells-notify i{
+    font-size: 2rem;
+    padding: .5rem;
+}
+
+/* ===== SECTION SEARCHES ===== */
+
+section.searches-contacts{
+    position: relative;
+}
+
+section.searches-contacts input#search-contact{
+    width: 95%;
+    padding: 0.5rem;
+    padding-left: .5rem;
+    border: 1px solid #B1B1B1;
+    border-radius: 5px;
+    margin: .3rem .5rem;
+
+}
+
+section.searches-contacts input#search-contact::placeholder {
+    padding-left: 3rem;
+}
+
+section.searches-contacts i{
+    position: absolute;
+    left: 20px;
+    top: 15px;
+
+}
+
+/* ===== SECTION CONTACTS ===== */
+section.container-contacts{
+
+}
+
+section.container-contacts img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
