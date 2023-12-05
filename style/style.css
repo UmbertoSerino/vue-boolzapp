@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+div.background-overlay-1{
+    height: 150px;
+    background-color: #009588;
+    position: relative;
+}
+
+div.background-overlay-2{
+    height: calc(100vh - 150px);
+    background-color: #DBDBD3;
+}
+
+main.container{
+    width: 1800px;
+    height: 800px;
+    background-color: rgb(33, 143, 186);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+aside.container-aside{
+    width: 40%;
+    background-color: white;
+}
+
+div.container-personal-profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+img{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
