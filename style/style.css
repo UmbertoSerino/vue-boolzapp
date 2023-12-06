@@ -200,14 +200,52 @@ div.current-profile-img{
     align-items: center;
 }
 
+img.current-img{
+    display: none;
+}
+
+img.current-img-selected{
+    display: block;
+}
+
 /* ====== CURRENT MESSAGES  ======*/
 section.container-messages{
     height: calc(100% - 140px);
     background-image: url(../img/mine.jpg);
+    display: flex;
+    flex-direction: column;
+}
+.container-message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.message{
+    max-width: 600px;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.recive {
+    background-color: #ffffff;
+    align-self: flex-start;
+    margin-left: 2rem;
+    margin-right: 5rem;
+}
+
+.sent {
+    background-color: #4caf50;
+    color: white;
+    align-self: flex-end;
+    margin-left: 5rem;
+    margin-right: 2rem;
 }
 
 
-/* ====== A  ======*/
+
+/* ====== SECTION SEND MESSAGE  ======*/
 
 section.input-send{
     height: 60px;

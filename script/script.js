@@ -178,6 +178,11 @@ createApp({
 
     selectContact(contact) {
         this.selectedContact = contact;
+        this.toogleCurrentImage()
+    },
+    toogleCurrentImage(){
+      const changeClassImg =  document.querySelector('.current-img');
+        changeClassImg.classList.add('current-img-selected')
     }
   }
 }).mount('#app');
