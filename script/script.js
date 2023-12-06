@@ -164,14 +164,20 @@ createApp({
                         status: 'received'
                     }
                 ],
-            }
+            },
         ],
-        isBackgroundActive: false
+        isBackgroundBellsActive: false,
+        selectedContact: {},           
+
     }
   },
   methods: {
     bellsChangeBackground(){
-        this.isBackgroundActive = !this.isBackgroundActive;
+        this.isBackgroundBellsActive = !this.isBackgroundBellsActive;
+    },
+
+    selectContact(contact) {
+        this.selectedContact = contact;
     }
   }
 }).mount('#app');

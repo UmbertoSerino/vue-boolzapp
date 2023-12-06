@@ -23,21 +23,23 @@ div.background-overlay-2{
     background-color: #DBDBD3;
 }
 
-main.container{
+div.container{
     width: 75%;
-    height: 95%;
+    height: 80%;
     max-width: 1800px;
-    max-height: 800px;
     background-color: rgb(33, 143, 186);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
 }
 
 aside.container-aside{
     width: 40%;
+    height: 100%;
     background-color: white;
+    border-right: 1px solid rgb(232, 232, 232);
 }
 
 /* ===== SECTION PERSONAL PROFILE ===== */
@@ -48,6 +50,7 @@ section.container-personal-profile{
     align-items: center;
     height: 80px;
     padding: .5rem;
+    padding-right: 1rem;
     background-color: #EAEAEA;
 }
 
@@ -62,10 +65,11 @@ section.container-personal-profile img{
     height: 60px;
 }
 
-section.container-personal-profile i{
+section.container-personal-profile i,
+section.current-profile-contact i{
     color: #B1B1B1;
     padding: 0 .5rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 /* ===== SECTION SOUND NOTIFY ===== */
@@ -74,6 +78,8 @@ section.container-sound-notify{
     display: flex;
     align-items: center;
     padding: 1rem;
+    height: 80px;
+    background-color: #FAFAFA;
 }
 
 section.container-sound-notify-bg{
@@ -85,7 +91,6 @@ div.bells-notify{
     border-radius: 50%;
     color: white;
     margin-right: .8rem;
-    padding: .5rem;
 }
 div.bells-notify i{
     font-size: 2rem;
@@ -96,21 +101,21 @@ div.bells-notify i{
 
 section.searches-contacts{
     position: relative;
+    height: 40px;
+    background-color: #FAFAFA;
 }
 
 section.searches-contacts input#search-contact{
     width: 95%;
     padding: 0.5rem;
-    padding-left: .5rem;
-    border: 1px solid #B1B1B1;
+    padding-left: 2.5rem;
+    border: 1px solid #f0efef;
     border-radius: 5px;
     margin: .3rem .5rem;
 
 }
 
-section.searches-contacts input#search-contact::placeholder {
-    padding-left: 3rem;
-}
+
 
 section.searches-contacts i{
     position: absolute;
@@ -120,12 +125,118 @@ section.searches-contacts i{
 }
 
 /* ===== SECTION CONTACTS ===== */
-section.container-contacts{
-
+section.container-contacts {
+    overflow-y: auto;
+    max-height: calc(100% - 200px);
+    width: 100%;
+    margin: 0 auto;
+    background-color: #FFFFFF;
 }
+
 
 section.container-contacts img{
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    margin-right: 1rem;
 }
+
+ul li.container-contact{
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    border-top: 1px solid rgb(241, 241, 241);
+}
+
+ul li.container-contact:hover{
+    background-color: rgb(221, 219, 219);
+    cursor: pointer;
+}
+
+.card-contact{
+    display: flex;
+}
+
+p.name-contact{
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+
+/* ====== MAIN  ======*/
+
+/* ====== HEADER - CURRENT PROFILE  ======*/
+
+main.container{
+    width: 60%;
+    background-color: white;
+    height: 100%;
+}
+
+header.selector-profile{
+    height: 80px;
+    background-color: #EAEAEA;
+    border-left: 1px solid #6c6c6c;
+}
+
+header.selector-profile img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin: 0 1rem;
+
+}
+
+section.current-profile-contact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding-right: 1rem;
+}
+
+div.current-profile-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ====== CURRENT MESSAGES  ======*/
+section.container-messages{
+    height: calc(100% - 140px);
+    background-image: url(../img/mine.jpg);
+}
+
+
+/* ====== A  ======*/
+
+section.input-send{
+    height: 60px;
+    width: 100%;
+    background-color: #F3EEEA;
+    display: flex;
+    align-items: center;
+}
+
+section.input-send i {
+    font-size: 1.5rem;
+    color: #6B7376;
+    margin: 0 1.7rem;
+}
+
+div.container-input-message{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+section input#send-message{
+    width: 100%;
+    height: 80%;
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+}
+
