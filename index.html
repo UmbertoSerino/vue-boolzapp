@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./style/style.css">
     <!-- Script vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Script Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
 </head>
 <body>
     <div class="background-overlay-1">
@@ -54,14 +56,14 @@
                                     <p class="name-contact">
                                         {{ contacts[index].name }}
                                     </p>
-                                    <p>
-                                
+                                    <p class="last-message">
+                                        {{ contacts[index].messages[contacts[index].messages.length - 1].message }}
                                     </p>
                                 </div>
                             </div>
                             <div>
-                                <p>
-                                    {{ contacts[index].messages[1].date }}
+                                <p class="last-time-message">
+                                    {{ contacts[index].messages[contacts[index].messages.length - 1].date.split(' ')[1].slice(0, 5) }}
                                 </p>
                             </div>
                         </li>
@@ -74,6 +76,7 @@
                         <div class="current-profile-img" >
                             <img class="current-img" :src= "selectedContact.avatar" alt="{{selectedContact.name}} picture">
                             <p> {{ selectedContact.name }} </p>
+                            <p> {{ selectedContact.date }}</p>
                         </div>
                         <div >
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -83,12 +86,12 @@
                     </section>
                 </header>
                 <section class="container-messages">
-                    <article class="container-message">
-                        <div class="message recive">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A at, hic quidem dicta, perspiciatis nobis, est unde praesentium aliquam corrupti temporibus et nam officiis voluptatem expedita vel cupiditate. Quibusdam, numquam?</p>
+                    <article class="container-message" v-for="message in selectedContact.messages" :key="message.date">
+                        <div v-if="message.status === 'received'" class="message received">
+                            <p>{{ message.message }}</p>
                         </div>
-                        <div class="message sent">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore veniam amet quae, qui quidem perspiciatis! Nihil illo placeat assumenda quis expedita ut cumque explicabo fuga, quam, est quibusdam quo cum.</p>
+                        <div v-else class="message sent">
+                            <p>{{ message.message }}</p>
                         </div>
                         
                     </article>
