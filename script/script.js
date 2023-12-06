@@ -1,10 +1,11 @@
 const { createApp } = Vue;
 
+
 createApp({
   data() {
     return {
         contacts: [
-            {
+            {   id: 0,
                 name: 'Michele',
                 avatar: './img/avatar_1.jpg',
                 visible: true,
@@ -26,7 +27,7 @@ createApp({
                     }
                 ],
             },
-            {
+            {   id: 1,
                 name: 'Fabio',
                 avatar: './img/avatar_2.jpg',
                 visible: true,
@@ -48,7 +49,7 @@ createApp({
                     }
                 ],
             },
-            {
+            {   id: 2,
                 name: 'Samuele',
                 avatar: './img/avatar_3.jpg',
                 visible: true,
@@ -70,7 +71,7 @@ createApp({
                     }
                 ],
             },
-            {
+            {   id: 3,
                 name: 'Alessandro B.',
                 avatar: './img/avatar_4.jpg',
                 visible: true,
@@ -87,7 +88,7 @@ createApp({
                     }
                 ],
             },
-            {
+            {   id: 4,
                 name: 'Alessandro L.',
                 avatar: './img/avatar_5.jpg',
                 visible: true,
@@ -104,7 +105,7 @@ createApp({
                     }
                 ],
             },
-            {
+            {   id: 5,
                 name: 'Claudia',
                 avatar: './img/avatar_6.jpg',
                 visible: true,
@@ -126,7 +127,7 @@ createApp({
                     }
                 ],
             },
-            {
+            {   id: 6,
                 name: 'Federico',
                 avatar: './img/avatar_7.jpg',
                 visible: true,
@@ -143,7 +144,7 @@ createApp({
                     }
                 ],
             },
-            {
+            {   id: 7,
                 name: 'Davide',
                 avatar: './img/avatar_8.jpg',
                 visible: true,
@@ -167,7 +168,8 @@ createApp({
             },
         ],
         isBackgroundBellsActive: false,
-        selectedContact: {},           
+        selectedContact: {},  
+        messageSent: '',         
 
     }
   },
@@ -175,7 +177,6 @@ createApp({
     bellsChangeBackground(){
         this.isBackgroundBellsActive = !this.isBackgroundBellsActive;
     },
-
     selectContact(contact) {
         this.selectedContact = contact;
         this.toogleCurrentImage()
@@ -183,6 +184,18 @@ createApp({
     toogleCurrentImage(){
       const changeClassImg =  document.querySelector('.current-img');
         changeClassImg.classList.add('current-img-selected')
-    }
+    },
+    sendMessage() {
+        if (this.messageSent.trim() !== '') {
+          const newMessage = {
+            date: new Date().toLocaleString(), 
+            message: this.messageSent,
+            status: 'sent',
+          };
+  
+          this.selectedContact.messages.push(newMessage);
+          this.messageSent = ''; 
+        }
+      },      
   }
 }).mount('#app');
