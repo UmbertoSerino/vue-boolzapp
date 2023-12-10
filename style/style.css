@@ -214,6 +214,7 @@ section.container-messages{
     background-image: url(../img/mine.jpg);
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 .container-message {
     width: 100%;

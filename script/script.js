@@ -1,6 +1,5 @@
 const { createApp } = Vue;
 
-
 createApp({
   data() {
     return {
@@ -169,10 +168,15 @@ createApp({
         ],
         isBackgroundBellsActive: false,
         selectedContact: {},  
-        messageSent: '',         
+        messageSent: '',     
+        messagesReceivedRandom: ['ok', 'va bene', 'perchè no', 'certo certosino'],   
+        messageReceived : '', 
 
     }
   },
+  mounted(){
+  },
+
   methods: {
     bellsChangeBackground(){
         this.isBackgroundBellsActive = !this.isBackgroundBellsActive;
@@ -192,10 +196,14 @@ createApp({
             message: this.messageSent,
             status: 'sent',
           };
-  
           this.selectedContact.messages.push(newMessage);
           this.messageSent = ''; 
         }
-      },      
+      },
+      getRandomMessage() {
+        const randomMessage = Math.floor(Math.random() * this.messagesReceivedRandom.length);
+        this.messageReceived = this.messagesReceivedRandom[randomMessage];
+      }
+
   }
 }).mount('#app');
