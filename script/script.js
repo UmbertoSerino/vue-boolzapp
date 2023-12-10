@@ -174,7 +174,8 @@ createApp({
 
     }
   },
-  mounted(){
+  created(){
+    setInterval(this.receivedMessage, 1000);
   },
 
   methods: {
@@ -203,7 +204,18 @@ createApp({
       getRandomMessage() {
         const randomMessage = Math.floor(Math.random() * this.messagesReceivedRandom.length);
         this.messageReceived = this.messagesReceivedRandom[randomMessage];
+      },
+      
+      receivedMessage(){
+        if (this.messageSent.trim() !== ''){
+            this.getRandomMessage();
+            const newReceivedMessage = {
+                date: new Date().toLocaleString(), 
+                message: this.messageReceived,
+                status: 'received',
+            };
+            this.selectedContact.messages.push(newReceivedMessage);
+        }
       }
-
   }
 }).mount('#app');

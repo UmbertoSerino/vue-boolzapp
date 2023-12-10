@@ -24,7 +24,7 @@
                 <section class="container-personal-profile">
                     <div class="container-personal">
                         <img src="./img/avatar_io.jpg" alt="picture my profile">
-                        <span>Sofia</span>
+                        <span class="my-name">Sofia</span>
                     </div>
                     <div>
                         <i class="fa-solid fa-circle-notch"></i>
@@ -89,9 +89,12 @@
                     <article class="container-message" v-for="message in selectedContact.messages" :key="message.date">
                         <div v-if="message.status === 'received'" class="message received">
                             <p>{{ message.message }}</p>
+                            <p class="time-message">{{ message.date.split(' ')[1].slice(0, 5) }}</p>
                         </div>
                         <div v-else class="message sent">
                             <p>{{ message.message }}</p>
+                            <p class="time-message">{{ message.date.split(' ')[1].slice(0, 5) }}</p>
+
                         </div>
                         
                     </article>
