@@ -42,14 +42,14 @@
                     </div>
                 </section>
                 <section class="searches-contacts">
-                        <input type="text" id="search-contact" placeholder="Cerca o inizia una nuova chat"><i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="search-contact" placeholder="Cerca o inizia una nuova chat" v-model="searchesContacts" @keyup="searchContacts"><i class="fa-solid fa-magnifying-glass"></i>
                 </section>
                 <section class="container-contacts">
                     <ul>
-                        <li class="container-contact" v-for="(contact, index) in contacts" @click="selectContact(contact)">
+                        <li class="container-contact" v-for="(contact, index) in contacts" @click="selectContact(contact)" v-show="contact.visible">
                             <div class="card-contact">
                                 <div>
-                                    <img :src="contacts[index].avatar" alt="{{ contacts[index].name }}">
+                                    <img :src="contacts[index].avatar" alt="{{ contacts[index].name }} picture">
                                 </div>
                                 <div>
                                     <p class="name-contact">
@@ -89,10 +89,13 @@
                         <div v-if="message.status === 'received'" class="message received">
                             <p>{{ message.message }}</p>
                             <p class="time-message">{{ message.date.split(' ')[1].slice(0, 5) }}</p>
+                            <i class="settings fa-solid fa-angle-down"></i>
+
                         </div>
                         <div v-else class="message sent">
                             <p>{{ message.message }}</p>
                             <p class="time-message">{{ message.date.split(' ')[1].slice(0, 5) }}</p>
+                            <i class="settings fa-solid fa-angle-down"></i>
 
                         </div>
                         

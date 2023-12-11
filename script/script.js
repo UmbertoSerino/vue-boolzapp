@@ -170,19 +170,12 @@ createApp({
         selectedContact: {},  
         messageSent: '',     
         messagesReceivedRandom: ['ok', 'va bene', 'perchè no', 'certo certosino'],   
-        messageReceived : '', 
+        messageReceived : '',
+        searchesContacts : '',
 
     }
-  },
-//   created() {
-//     setInterval(() => {
-//         const lastMessage = this.selectedContact.messages[this.selectedContact.messages.length - 1];
-//         if (lastMessage.status === 'sent'){
-//         }
-//         this.receivedMessage();
-//     }, 1000);
-//   },
-  methods: {
+},
+methods: {
     bellsChangeBackground(){
         this.isBackgroundBellsActive = !this.isBackgroundBellsActive;
     },
@@ -191,36 +184,53 @@ createApp({
         this.toogleCurrentImage()
     },
     toogleCurrentImage(){
-      const changeClassImg =  document.querySelector('.current-img');
+        const changeClassImg =  document.querySelector('.current-img');
         changeClassImg.classList.add('current-img-selected')
     },
-    sendMessage(event) {
-        if (event.key === 'Enter') {
-          const newMessage = {
-            date: new Date().toLocaleString(), 
-            message: this.messageSent,
-            status: 'sent',
-          };
-          this.selectedContact.messages.push(newMessage);
-          this.receivedMessage()
-          this.messageSent = ''; 
+    sendMessage(eventMessages) {
+        if (eventMessages.key === 'Enter') {
+            const newMessage = {
+                date: new Date().toLocaleString(),
+                message: this.messageSent,
+                status: 'sent',
+            };
+            this.selectedContact.messages.push(newMessage);
+            setTimeout(() => {
+                this.receivedMessage(newMessage);
+                console.log('timeout');
+            }, 1000);
+            this.messageSent = '';
         }
-      },
-      getRandomMessage() {
+    },
+    getRandomMessage() {
         const randomMessage = Math.floor(Math.random() * this.messagesReceivedRandom.length);
         this.messageReceived = this.messagesReceivedRandom[randomMessage];
-      },
-      
-      receivedMessage(){
-        if (this.messageSent.trim() !== ''){
-            this.getRandomMessage();
+    },    
+    receivedMessage(newMessage) {
+    
+        if (newMessage.status === 'sent') {
+            this.getRandomMessage(); 
             const newReceivedMessage = {
-                date: new Date().toLocaleString(), 
+                date: new Date().toLocaleString(),
                 message: this.messageReceived,
                 status: 'received',
             };
             this.selectedContact.messages.push(newReceivedMessage);
         }
-      }
-  }
+    },
+    searchContacts() {
+        const nameSearch = this.searchesContacts.trim().toLowerCase();
+    
+        if (nameSearch !== '') {
+            this.contacts.forEach(contact => {
+                const contactName = contact.name.toLowerCase();
+                contact.visible = contactName.includes(nameSearch);
+            });
+        } else {
+            this.contacts.forEach(contact => {
+                contact.visible = true;
+            });
+        }
+    }   
+}
 }).mount('#app');

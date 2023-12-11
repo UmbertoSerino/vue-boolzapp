@@ -233,16 +233,16 @@ section.container-messages{
     flex-direction: column;
 }
 
+
 .message{
     max-width: 600px;
     padding: 10px;
+    padding-bottom: 1rem;
+    padding-right: 3rem;
     min-width: 70px;
     border-radius: 8px;
     margin-top: 1.5rem;
     position: relative;
-    padding-bottom: 1rem;
-
-
 }
 
 p.time-message{
@@ -267,6 +267,18 @@ p.time-message{
     align-self: flex-end;
     margin-left: 5rem;
     margin-right: 2rem;
+}
+
+div.message i.settings{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: rgb(186, 186, 186);
+    display: none;
+}
+
+.container-message:hover i.settings {
+    display: inline-block;
 }
 
 
