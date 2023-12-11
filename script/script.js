@@ -174,10 +174,14 @@ createApp({
 
     }
   },
-  created(){
-    setInterval(this.receivedMessage, 1000);
-  },
-
+//   created() {
+//     setInterval(() => {
+//         const lastMessage = this.selectedContact.messages[this.selectedContact.messages.length - 1];
+//         if (lastMessage.status === 'sent'){
+//         }
+//         this.receivedMessage();
+//     }, 1000);
+//   },
   methods: {
     bellsChangeBackground(){
         this.isBackgroundBellsActive = !this.isBackgroundBellsActive;
@@ -190,14 +194,15 @@ createApp({
       const changeClassImg =  document.querySelector('.current-img');
         changeClassImg.classList.add('current-img-selected')
     },
-    sendMessage() {
-        if (this.messageSent.trim() !== '') {
+    sendMessage(event) {
+        if (event.key === 'Enter') {
           const newMessage = {
             date: new Date().toLocaleString(), 
             message: this.messageSent,
             status: 'sent',
           };
           this.selectedContact.messages.push(newMessage);
+          this.receivedMessage()
           this.messageSent = ''; 
         }
       },

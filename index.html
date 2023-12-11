@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Boolzapp</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- My style -->
@@ -44,7 +44,6 @@
                 <section class="searches-contacts">
                         <input type="text" id="search-contact" placeholder="Cerca o inizia una nuova chat"><i class="fa-solid fa-magnifying-glass"></i>
                 </section>
-                <!-- creare un ciclo for per inserire i nomi, far visualizzare l'ultimo messaggio inviato e l'arario del messaggio -->
                 <section class="container-contacts">
                     <ul>
                         <li class="container-contact" v-for="(contact, index) in contacts" @click="selectContact(contact)">
